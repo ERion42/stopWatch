@@ -5,27 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StopWatch</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⏳</text></svg>">
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital@1&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Stopwatch</h1>
-    <span>00:00:00</span>
-
-    <!-- Play Button -->
-    <button>
-        <span class="iconify" data-icon="emojione-monotone:play-button"></span>
-    </button>
-
-    <!-- Pause Button -->
-    <button>
-        <span class="iconify" data-icon="emojione-monotone:pause-button"></span>
-    </button>
-
-    <!-- Reset Button -->
-    <button>
+    <div class="stopwatch">
+        <h1 class="gold">Stopwatch</h1>
+        <div class="circle">
+            <span class="time" id="display">00:00:00</span>
+        </div>
         
-    </button>
+        <div class="controls">
+            <!-- Play Button -->
+            <button class="buttonPlay">
+                <img id="playButton" src="icons/play-button.svg" />
+            
 
+            <!-- Pause Button -->
+            
+                <img id="pauseButton" src="icons/pause-button.svg" />
+            </button>
+
+            <!-- Reset Button -->
+            <button class="buttonReset">
+                <img id="resetButton" src="icons/reset-button.svg" />
+            </button>
+        </div>
+    </div>
 
     <script src="https://code.iconify.design/2/2.1.1/iconify.min.js"></script>
     <script src="script.js"></script>
