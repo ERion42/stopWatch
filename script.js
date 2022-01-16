@@ -19,14 +19,41 @@ function timeToString(time) {
   }
 
 let StartTime;
-let elapsedTime;
+let elapsedTime = 0;
+let timerInterval;
+
+function print(txt) {
+    document.getElementById("display").innerHTML = txt;
+}
+
+function showButton(buttonKey) {
+    const buttonToShow = buttonKey === "PLAY" ? playButton : pauseButton;
+    const buttonToHide = buttonKey === "PLAY" ? pauseButton : playButton;
+    buttonToShow.style.display = "block";
+    buttonToHide.style.display = "none";
+}
 
 function start() {
-    startTime = Date.now();
-    setInterval(function printTime() {
+    startTime = Date.now() - elapsedTime;
+    // setInterval(function printTime() {
+    timerInterval = setInterval(function printTime() {
         elapsedTime = Date.now() - startTime;
-        document.getElementById("display").innerHTML = timeToString (elapsedTime);
+        // document.getElementById("display").innerHTML = timeToString (elapsedTime);
+        print(timeToString(elapsedTime));
     }, 10);
+    showButton("PAUSE");
+}
+
+function pause() {
+    clearInterval(timerInterval);
+    showButton("PLAY");
+}
+
+function reset() {
+    clearInterval(timerInterval);
+    print("00:00:00");
+    elapsedTime = 0;
+    showButton("PLAY");
 }
 
 let playButton = document.getElementById("playButton");
